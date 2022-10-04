@@ -12,7 +12,7 @@ from dbx.utils import dbx_echo
 def cleanup_dist():
     dist_path = Path("dist")
     if dist_path.exists():
-        dbx_echo("🧹 Standard package folder [bold]dist[/bold] already exists, cleaning it before Python package build")
+        dbx_echo(":broom: Standard package folder [bold]dist[/bold] already exists, cleaning it before Python package build")
         for _file in dist_path.glob("*.whl"):
             _file.unlink()
 
@@ -27,7 +27,7 @@ def execute_shell_command(
     try:
         subprocess.check_output(_cmd, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as exc:
-        dbx_echo("\n💥Command execution failed")
+        dbx_echo("\n:boom: Command execution failed")
         raise exc
 
 
@@ -40,10 +40,10 @@ def prepare_build(build_config: BuildConfiguration):
         if build_config.commands:
             dbx_echo("Running the build commands")
             for command in build_config.commands:
-                with Console().status(f"🔨Running command {command}", spinner="dots"):
+                with Console().status(f":hammer: Running command {command}", spinner="dots"):
                     execute_shell_command(command)
         elif build_config.python:
-            dbx_echo("🐍 Building a Python-based project")
+            dbx_echo(":snake: Building a Python-based project")
             cleanup_dist()
 
             if build_config.python == PythonBuild.poetry:

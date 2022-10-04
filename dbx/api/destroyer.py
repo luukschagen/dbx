@@ -44,7 +44,7 @@ class WorkflowEraser(Eraser):
                 dbx_echo(f"Job {workflow} with definition {_job} would be deleted in case of a real run")
             else:
                 api.delete_job(_job["job_id"])
-                dbx_echo(f"Job object with name {workflow} was successfully deleted ✅")
+                dbx_echo(f"Job object with name {workflow} was successfully deleted :white_check_mark:")
 
     def erase(self):
         for w in self._workflows:
@@ -86,7 +86,7 @@ class AssetEraser(Eraser):
             _runs: List[Run] = mlflow.search_runs(experiment_ids=[experiment.experiment_id], output_format="list")
             if _runs:
                 self.__delete_found_assets(_runs)
-            dbx_echo("Assets deletion finished successfully ✅")
+            dbx_echo("Assets deletion finished successfully :white_check_mark:")
 
 
 class DracarysPrinter:
@@ -113,10 +113,10 @@ class DracarysPrinter:
 
 class NormalPrinter:
     def __enter__(self):
-        dbx_echo("🚮 Launching the destroy process")
+        dbx_echo(":litter_in_bin_sign: Launching the destroy process")
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        dbx_echo("Destroy process finished ✅")
+        dbx_echo("Destroy process finished :white_check_mark:")
 
 
 class Destroyer:

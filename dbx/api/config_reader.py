@@ -84,10 +84,10 @@ class Jinja2ConfigReader(_AbstractConfigReader):
 
     @classmethod
     def add_custom_functions(cls, template: jinja2.Template):
-        dbx_echo(f"🔌 Found custom Jinja functions defined in {CUSTOM_JINJA_FUNCTIONS_PATH}, loading them")
+        dbx_echo(f":electric_plug: Found custom Jinja functions defined in {CUSTOM_JINJA_FUNCTIONS_PATH}, loading them")
         _module = load_module_from_source(CUSTOM_JINJA_FUNCTIONS_PATH, "_custom")
         template.globals["custom"] = _module
-        dbx_echo("✅ Custom Jinja functions successfully loaded")
+        dbx_echo(":white_check_mark: Custom Jinja functions successfully loaded")
 
     def _read_file(self) -> DeploymentConfig:
         _var = {} if not self._jinja_vars_file else self._read_vars_file(self._jinja_vars_file)

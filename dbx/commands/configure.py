@@ -53,12 +53,12 @@ def configure(
     if enable_inplace_jinja_support:
         dbx_echo("Enabling jinja support")
         manager.enable_jinja_support()
-        dbx_echo("✅ Enabling jinja support")
+        dbx_echo(":white_check_mark: Enabling jinja support")
 
     elif enable_failsafe_cluster_reuse_with_assets:
         dbx_echo("Enabling failsafe cluster reuse with assets")
         manager.enable_failsafe_cluster_reuse()
-        dbx_echo("✅ Enabling failsafe cluster reuse with assets")
+        dbx_echo(":white_check_mark: Enabling failsafe cluster reuse with assets")
 
     else:
         dbx_echo(f"Configuring new environment with name {environment}")

@@ -83,7 +83,7 @@ class ExecutionController:
         driver_package_path = self._file_uploader.upload_and_provide_path(package_file, as_fuse=True)
         dbx_echo(":white_check_mark: Uploading package - done")
 
-        with Console().status("Installing package on the cluster 📦", spinner="dots"):
+        with Console().status("Installing package on the cluster :package:", spinner="dots"):
             self._client.install_package(driver_package_path, pip_install_extras)
 
         dbx_echo(":white_check_mark: Installing package - done")
